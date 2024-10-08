@@ -111,10 +111,46 @@ nav {
   background-color: white;
   z-index: 2;
   cursor: pointer;
+  overflow-y: auto;
+  
 }
 
 .invisible {
   display: none;
+}
+
+.cartTitle {
+  text-align: center;
+}
+
+.cartItems {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.cartItem {
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  
+}
+
+.topCardCart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemName {
+  margin: 0;
+  font-size: 1em;
+}
+
+.itemCartQuantity {
+  font-size: 1em;
+  margin: 0;
 }
 
 

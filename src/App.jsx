@@ -38,39 +38,56 @@ export default function App() {
     }
 
     function alterQuantity(item, addOrSub) {
-      console.log(cart)
+      
       for (let i = 0; i < cart.length; i++) {
         const newData = {}
         if (item.title === cart[i].title) {
             newData.title = item.title
-            newData.quantity = addOrSub ? cart[i].quantity + 1: (quantity - 1 > 0 ? cart[i].quantity - 1 : 1)
-            newData.cost = cart[i].price
+            newData.quantity = addOrSub ? cart[i].quantity + 1: ((cart[i].quantity - 1 > 0) ? (cart[i].quantity - 1) : 1)
+            newData.cost = cart[i].cost
             const newCart = [...cart]
             newCart[i] = newData
-            
+            console.log(newCart)
             setCart([...newCart])
             return
         }
       }
+      
     }
 
+    function deleteCartItem(item) {
+      
+      for (let i = 0; i < cart.length; i++) {
+        if (item.title === cart[i].title) {
+          
+          const newCart = [...cart]
+          
+          newCart.splice(i, 1)
+          
+          setCart([...newCart])
+    }}}
+
     function makeCartItem(item) {
-      console.log('fire 2')
+      
       return (
         <div className="cartItem" key={item.title + item.quantity}>
-          <h6 className="itemName">{item.title + "X " + item.quantity}</h6>
-          <p className="cartItemTotal">{"Cost: " + item.cost}</p>
+          <div className="topCardCart">
+            <h6 className="itemName">{item.title}</h6>
+            <p className="itemCartQuantity">{"X " + item.quantity}</p>
+          </div>
+          <p className="cartItemTotal">{"Cost: $" + item.cost}</p>
+          <p className="itemTotal">{"Item Total: $" + (item.cost * item.quantity)}</p>
           <div className="itemIconContainer">
-            <button onClick={alterQuantity(item, true)} className="addOne">+</button>
-            <button className="minusOne">-</button>
-            <button className="">DEL</button>
+            <button onClick={() => alterQuantity(item, true)} className="addOne">+</button>
+            <button onClick={() => alterQuantity(item, false)} className="minusOne">-</button>
+            <button onClick={() => deleteCartItem(item)} className="cartItemDeleteButton">DEL</button>
           </div>
         </div>
       )
     }
 
     function fillCart() {
-      console.log('fire')
+     
       return cart.map(item => makeCartItem(item))
     }
 
@@ -104,7 +121,9 @@ export default function App() {
         <div className={cartVisibility ? "cartMenu" : "cartMenu invisible"}>
           <h2 className="cartTitle">My Cart</h2>
           <div className="cartItems">{fillCart()}</div>
-          <p className="cartTotal">{"Subtotal: $" + getTotal()}</p>
+          <p className="cartTotal">{"Subtotal: $" + (Math.round(getTotal() * 100) / 100).toFixed(2)}</p>
+          <p className="cartTotal">{"Total with inexplicable extra store fee: $" + (Math.round((getTotal() + 50.99) * 100) / 100).toFixed(2)}</p>
+          <button className="checkout">Checkout</button>
         </div>
         <Outlet />
       </>

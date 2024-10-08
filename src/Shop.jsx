@@ -13,17 +13,18 @@ function Shop(cart, setCart) {
   const [items, setItems] = useState([])
   const [categories, setCategories] = useState([])
   
-
-  function getItems(){
+  //keeps fetching. refactor to App.jsx
+  
     useEffect(() => {
       fetch('https://fakestoreapi.com/products')
               .then(res=>res.json())
               .then(json=>dataProcessor(json))
         .catch((error) => console.error(error));
     }, []);
-  }
+  
 
   function dataProcessor(json) {
+    console.log("...fetching items")
     setItems(json)
     getCategories(json)
   }
@@ -127,7 +128,7 @@ function Shop(cart, setCart) {
 
   
 
-  getItems()
+  
   const shopItems = categories.map(cat =>
     <Fragment key={cat}>
        <h2 className="shopHeading">{capitalise(cat)}</h2>
