@@ -9,9 +9,10 @@ import "./shop.css"
 
 
 
-const Shop = () => {
+function Shop(cart, setCart) {
   const [items, setItems] = useState([])
   const [categories, setCategories] = useState([])
+  
 
   function getItems(){
     useEffect(() => {
@@ -28,39 +29,67 @@ const Shop = () => {
   }
 
   function getCategories(data) {
-    console.log('func data', data)
+    
     const cat = []
     for (let i = 0; i < data.length; i++) {
-      console.log(data[i].category)
+      
       if (!(cat.includes(data[i].category))) {
         cat.push(data[i].category)
       }
     }
-    console.log('preeeee list', cat)
+    
     setCategories([...cat])
   }
   
-  
-  useEffect(() => {
-      console.log('items', items) 
-      console.log('categories', categories)                                                                            
-  }, [items])
 
+  function addToCart(item, change) {
+    
+    for (let i = 0; i < cart.cart.length; i++) {
+      const newData = {}
+      if (item.title === cart.cart[i].title) {
+          newData.title = item.title
+          newData.quantity = cart.cart[i].quantity + change
+          newData.cost = cart.cart[i].price
+          const newCart = [...cart.cart]
+          newCart[i] = newData
+          
+          cart.setCart([...newCart])
+          return
+      }
+    }
   
-
-  // function getProductCards() {
-  //   return (
-      
-  //   )
-  // }
+   
+    cart.setCart([...cart.cart, {title: item.title, quantity: change ,cost: item.price }])
+    
+    
+ 
+    
+    return
+  }
 
   function itemsByCat(cat) {
     return (items.filter(item => item.category === cat))
   }
 
-  function itemCardsByCat(cat) {
-    const itemCards = itemsByCat(cat).map(item =>
-      <li className="itemCard" key={item.id}>
+  
+  
+
+  function ItemCardsByCat(category) {
+    const cat = category.cat
+
+
+    
+    function card(item) {
+      const [count, setCount] = useState(1) 
+
+      function countValidation(count) {
+        if (count > 0) {
+          setCount(count)
+        }
+      }
+
+      return (
+        <li className="itemCard" key={item.id}>
        <img
          src={item.image}
          alt={item.title}
@@ -72,9 +101,20 @@ const Shop = () => {
          <p className="itemRating">{'Rating: ' + item.rating.rate + '/5'}</p>
          <p className="itemPrice">{"Price: $" +item.price}</p>
        </div>
+       <div className="addToCartSection">
+         <button onClick={() => countValidation(count - 1)}>-</button>
+         <button onClick={() => addToCart(item, count)}> Add {count} cart</button>
+         <button onClick={() => countValidation(count + 1)}>+</button>
+       </div>
     </li>
+      )
+    }
+   
+
+    const itemCards = itemsByCat(cat).map(item =>
+      card(item)
     )
-    console.log('item cards by cat', itemCards)
+    
     return (itemCards)
   }
 
@@ -92,7 +132,7 @@ const Shop = () => {
     <Fragment key={cat}>
        <h2 className="shopHeading">{capitalise(cat)}</h2>
        <div className="itemList">
-         {itemCardsByCat(cat)}
+         <ItemCardsByCat cat={cat} />
        </div>
      </Fragment>
 )

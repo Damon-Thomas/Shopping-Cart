@@ -1,7 +1,7 @@
 
 
 #title2 {
-  color: peachpuff;
+  color: #ffdab9;
   text-shadow: 0px 0px 3px black;
   
 }
@@ -66,3 +66,57 @@ nav {
   
   text-align: center;
 }
+
+.navIcons {
+  width: 3em;
+  height: 3em;
+}
+
+.selected > img {
+  filter: invert(87%) sepia(11%) saturate(1208%) hue-rotate(324deg) brightness(103%) contrast(103%);
+  
+  
+}
+
+.shoppingCartIcon {
+  position: relative;
+}
+
+.cartCount {
+  margin: 0;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: .75em;
+  border-radius: 2em;
+  background-color: rgb(255, 218, 185, .85);
+  height: 1.5em;
+  width: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  /* opacity: .8; */
+}
+
+.cartMenu  {
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 8em;
+  width: clamp(10em, 25vw, 50em);
+  height: calc(100vh - 8em);
+  background-color: white;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.invisible {
+  display: none;
+}
+
+
+
+

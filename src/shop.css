@@ -23,7 +23,7 @@
 
 .itemCard {
     width: 15em;
-    height: 30em;
+    height: 35em;
 }
 
 .cardImg {
@@ -67,6 +67,11 @@
 }
 
 .cardBottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addToCartSection {
     display: flex;
     justify-content: space-between;
 }
