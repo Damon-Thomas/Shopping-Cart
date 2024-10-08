@@ -7,9 +7,8 @@ import "./App.css"
 
 export default function App() {
   return (
-    <div>
-      <h1>SHOP<span id="title2">iction</span></h1>
-
+    <div className="main">
+     
       {/* <p>
         This example demonstrates some of the core features of React Router
         including nested <code>&lt;Route&gt;</code>s,{" "}
@@ -39,30 +38,28 @@ export default function App() {
 
 function Layout() {
   return (
-    <div>
-      
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Homepage</Link>
-          </li>
-          <li>
-            <Link to="/shop">Shop</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <hr />
-
-  
+    <>
+      <div className="header">
+        <h1>SHOP<span id="title2">iction</span></h1>
+        <nav >
+          <ul className="navBar">
+            <li>
+              <Link to="/">Homepage</Link>
+            </li>
+            <li>
+              <Link to="/shop">Shop</Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
       <Outlet />
-    </div>
+    </>
   );
 }
 
 function NoMatch() {
   return (
-    <div>
+    <div className="errorPage">
       <h2>Nothing to see here!</h2>
       <p>
         <Link to="/">Go to the home page</Link>

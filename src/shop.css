@@ -1,0 +1,72 @@
+
+
+.shopContainer {
+    height: calc(100vh - 13em);
+    width: calc(100vw - 2em);
+    padding: 0em 1em;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.shopContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.itemList {
+    display: flex;
+    gap: 3em;
+    list-style-type: none;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.itemCard {
+    width: 15em;
+    height: 30em;
+}
+
+.cardImg {
+    width: 10em;
+    height: 10em;
+    padding: 2.5em;
+    object-fit: contain;
+}
+
+.shopHeading {
+    margin-bottom: 0;
+    margin-top: 2em;
+}
+
+.productName {
+    margin: 0;
+    font-size: 1em;
+    display: block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* number of lines to show */
+
+  height: 2.4em;
+  line-height: 1.2em;
+}
+
+.itemDescription {
+  display: block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5; /* number of lines to show */
+
+  height: 6.5em;
+  line-height: 1.3em;
+}
+
+.cardBottom {
+    display: flex;
+    justify-content: space-between;
+}
