@@ -75,8 +75,10 @@ export default function App() {
             <h6 className="itemName">{item.title}</h6>
             <p className="itemCartQuantity">{"X " + item.quantity}</p>
           </div>
-          <p className="cartItemTotal">{"Cost: $" + item.cost}</p>
-          <p className="itemTotal">{"Item Total: $" + (item.cost * item.quantity)}</p>
+          <div className="itemPrices">
+            <p className="cartItemTotal">{"Cost: $" + item.cost}</p>
+            <p className="itemTotal">{"Item Total: $" + (item.cost * item.quantity)}</p>
+          </div>
           <div className="itemIconContainer">
             <button onClick={() => alterQuantity(item, true)} className="addOne">+</button>
             <button onClick={() => alterQuantity(item, false)} className="minusOne">-</button>
@@ -121,9 +123,11 @@ export default function App() {
         <div className={cartVisibility ? "cartMenu" : "cartMenu invisible"}>
           <h2 className="cartTitle">My Cart</h2>
           <div className="cartItems">{fillCart()}</div>
-          <p className="cartTotal">{"Subtotal: $" + (Math.round(getTotal() * 100) / 100).toFixed(2)}</p>
-          <p className="cartTotal">{"Total with inexplicable extra store fee: $" + (Math.round((getTotal() + 50.99) * 100) / 100).toFixed(2)}</p>
-          <button className="checkout">Checkout</button>
+          <div className="cartBottomSection">
+            <p className="cartTotal">{"Subtotal: $" + (Math.round(getTotal() * 100) / 100).toFixed(2)}</p>
+            <p className="cartTotal">{"Total + extra store fee: $" + (Math.round((getTotal() + 50.99) * 100) / 100).toFixed(2)}</p>
+            <button className="checkout">Checkout</button>
+          </div>
         </div>
         <Outlet />
       </>
