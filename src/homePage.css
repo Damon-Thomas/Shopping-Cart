@@ -1,0 +1,47 @@
+.shopImage {
+    width: 60vw;
+    height: auto;
+}
+
+.imgCredit {
+    position: absolute;
+    margin: 0;
+    bottom: 5px;
+    color: gray;
+    
+}
+
+.imgCredit > a {
+    all: unset;
+}
+
+.imageContainer {
+    position: relative;
+}
+
+.mainHome {
+    display: flex;
+    flex-direction: column;
+    min-width: 100vw;
+}
+
+.homeContent {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+
+.homeTextContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.homeSubtitle {
+    margin: 0;
+    text-align: center;
+}
+
+.pageTitle {
+    padding-bottom: 1em;
+}
