@@ -7,3 +7,5 @@ expect.extend(matchers);
 afterEach(() => {
   cleanup();
 });
+
+//code is too coupled to test a lot. In the future parts need to be far more seperated so you can test the individual parts.

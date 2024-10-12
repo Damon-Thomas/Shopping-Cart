@@ -1,0 +1,139 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`App > renders App 1`] = `
+<div>
+  <div
+    class="main"
+  >
+    <div
+      class="header"
+    >
+      <h1>
+        SHOP
+        <span
+          id="title2"
+        >
+          iction
+        </span>
+      </h1>
+      <nav>
+        <ul
+          class="navBar"
+        >
+          <li>
+            <a
+              class="navIcon"
+              href="/"
+              style="text-decoration: none;"
+            >
+              <img
+                alt="Home Icon"
+                src="/src/assets/home.svg"
+              />
+            </a>
+          </li>
+          <li>
+            <a
+              class="navIcon"
+              href="/shop"
+            >
+              <img
+                alt="Shop Icon"
+                src="/src/assets/dollar-sign.svg"
+              />
+            </a>
+          </li>
+          <li
+            class="shoppingCartIcon"
+          >
+            <img
+              alt="Cart Icon"
+              class="navIcon"
+              src="/src/assets/shopping-cart.svg"
+            />
+            <p
+              class="cartCount"
+            >
+              0
+            </p>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div
+      class="cartMenu invisible"
+    >
+      <h2
+        class="cartTitle"
+      >
+        My Cart
+      </h2>
+      <div
+        class="cartItems"
+      />
+      <div
+        class="cartBottomSection"
+      >
+        <p
+          class="cartTotal"
+        >
+          Subtotal: $0.00
+        </p>
+        <p
+          class="cartTotal"
+        >
+          Total + extra store fee: $50.99
+        </p>
+        <button
+          class="checkout"
+        >
+          Checkout
+        </button>
+      </div>
+    </div>
+    <div
+      class="mainHome"
+    >
+      <h1
+        class="pageTitle"
+      >
+        Home
+      </h1>
+      <div
+        class="homeContent"
+      >
+        <div
+          class="imageContainer"
+        >
+          <img
+            alt=""
+            class="shopImage"
+            src="/src/assets/heidi-fin-2TLREZi7BUg-unsplashcompressed.jpg"
+          />
+          <p
+            class="imgCredit"
+          >
+            Photo by 
+            <a
+              href="https://unsplash.com/@framesbyfin?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+            >
+              Heidi Findescribe('App shop link', () => {
+  it('Shop link functions', () => {
+    const { container } = render(<App />);
+    const shopLink = screen.getByRole("ul")
+  });
+});
+          >
+            Shop Online Today
+          </h2>
+          <p
+            class="homeBody"
+          >
+            Come see the variety of products wer have on offer. Visit out shop page and choose from over 3 categories of items and more than 19 total items! Our checkout function is not working right now, but it should be up and running Q3 of 2179. Shop is a working demo and does not accept any form of currency. I hope you enjoy the random products. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
